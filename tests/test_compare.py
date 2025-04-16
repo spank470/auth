@@ -6,9 +6,13 @@ BASE_URL = "http://webtours.load-test.ru:1080"
 
 @allure.step("Получение userSession из навигационной страницы")
 def get_user_session():
+    # Сначала отправляем запрос на выход
+    requests.get(f"{BASE_URL}/cgi-bin/welcome.pl?signOff=true")
+
+    # Затем открываем домашнюю страницу
     response = requests.get(f"{BASE_URL}/cgi-bin/nav.pl?in=home")
     assert response.status_code == 200, "Не удалось открыть домашнюю страницу"
-    
+
     match = re.search(r'<input[^>]*name="userSession"[^>]*value="([^"]+)"', response.text)
     assert match, "userSession не найден в ответе"
     return match.group(1)
