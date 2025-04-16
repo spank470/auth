@@ -1,39 +1,24 @@
-import re
-import requests
 import allure
+import requests
 
-BASE_URL = "http://webtours.load-test.ru:1080"
+LOGIN_URL = "https://authenticationtest.com//login/?mode=simpleFormAuth"
 
-@allure.step("Получение userSession из навигационной страницы")
-def get_user_session():
-    # Сначала отправляем запрос на выход
-    requests.get(f"{BASE_URL}/cgi-bin/welcome.pl?signOff=true")
-
-    # Затем открываем домашнюю страницу
-    response = requests.get(f"{BASE_URL}/cgi-bin/nav.pl?in=home")
-    assert response.status_code == 200, "Не удалось открыть домашнюю страницу"
-
-    match = re.search(r'<input[^>]*name="userSession"[^>]*value="([^"]+)"', response.text)
-    assert match, "userSession не найден в ответе"
-    return match.group(1)
-
-@allure.step("Аутентификация пользователя с userSession={user_session}")
-def login(user_session, username="pank1", password="pank1"):
-    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+@allure.step("Отправка POST-запроса на вход")
+def send_login_request(email, password):
     payload = {
-        "userSession": user_session,
-        "username": username,
+        "email": email,
         "password": password
     }
-
-    response = requests.post(f"{BASE_URL}/cgi-bin/login.pl", data=payload, headers=headers)
+    response = requests.post(LOGIN_URL, data=payload)
     return response
 
 @allure.feature("Аутентификация")
 @allure.story("Успешный логин с корректными данными")
 def test_successful_login():
-    user_session = get_user_session()
-    response = login(user_session)
-
-    assert response.status_code == 200, "Запрос логина не дал 200 OK"
-    assert "<title>Web Tours</title>" in response.text, "HTML-страница логина не соответствует ожиданиям"
+    email = "simpleForm@authenticationtest.com"
+    password = "pa$$w0rd"
+    
+    response = send_login_request(email, password)
+    
+    assert response.status_code == 200, f"Ожидался статус 200, но получен {response.status_code}"
+    assert "<h1>Login Success</h1>" in response.text, "Ответ не содержит ожидаемого сообщения о успешном логине"
