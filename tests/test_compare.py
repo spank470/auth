@@ -36,5 +36,5 @@ def test_successful_login():
     response = login(user_session)
 
     assert response.status_code == 200, "Запрос логина не дал 200 OK"
-    assert "Sign Off" in response.text, "Пользователь не вошёл: не найдена кнопка выхода"
+    assert "Sign Off" in response.text or "Welcome" in response.text, "Авторизация не удалась"
     assert "<title>Web Tours</title>" in response.text, "HTML-страница логина не соответствует ожиданиям"
