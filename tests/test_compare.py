@@ -5,28 +5,36 @@ LOGIN_URL = "https://authenticationtest.com//login/?mode=simpleFormAuth"
 
 @allure.step("Отправка POST-запроса на вход")
 def send_login_request(email, password):
+    session = requests.Session()
+
     payload = {
         "email": email,
         "password": password
     }
-    response = requests.post(LOGIN_URL, data=payload)
 
-    # Прикрепляем детали запроса
+    headers = {
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+
+    response = session.post(LOGIN_URL, data=payload, headers=headers)
+
+    # Прикрепляем тело запроса вручную, так как request.body может быть None
+    encoded_payload = requests.models.RequestEncodingMixin._encode_params(payload)
+
     allure.attach(
-        name="Детали запроса",
-        body=f"URL: {response.request.url}\n"
-             f"Метод: {response.request.method}\n"
-             f"Заголовки: {response.request.headers}\n"
-             f"Тело: {response.request.body}",
+        name="Запрос",
+        body=f"URL: {LOGIN_URL}\n"
+             f"Метод: POST\n"
+             f"Заголовки: {headers}\n"
+             f"Тело: {encoded_payload}",
         attachment_type=allure.attachment_type.TEXT
     )
 
-    # Прикрепляем детали ответа
     allure.attach(
-        name="Детали ответа",
-        body=f"Статус код: {response.status_code}\n"
-             f"Заголовки: {response.headers}\n"
-             f"Тело: {response.text}",
+        name="Ответ",
+        body=f"Статус: {response.status_code}\n"
+             f"Заголовки: {dict(response.headers)}\n"
+             f"Тело: {response.text[:1000]}...",  # Ограничим длину
         attachment_type=allure.attachment_type.TEXT
     )
 
