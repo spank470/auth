@@ -1,0 +1,18 @@
+Статус: 200
+Заголовки: {'Date': 'Wed, 16 Apr 2025 21:09:11 GMT', 'Server': 'Apache', 'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload', 'Cache-Control': 'no-cache,no-store, no-store, no-cache, must-revalidate', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '1; mode=block', 'Referrer-Policy': 'same-origin', 'X-Content-Type-Options': 'nosniff', 'Feature-Policy': "autoplay 'none'; camera 'none'; document-domain 'none'; encrypted-media 'none'; fullscreen 'none'; geolocation 'none'; microphone 'none'; midi 'none'; payment 'none'; vr 'none' ", 'Pragma': 'no-cache, no-cache', 'Expires': 'Thu, 19 Nov 1981 08:52:00 GMT', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '1375', 'Keep-Alive': 'timeout=5, max=99', 'Connection': 'Keep-Alive', 'Content-Type': 'text/html; charset=UTF-8'}
+Тело: <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="This site contains some examples of the ways web applications accept authentication. You can use these to test your scripts ability to authentication to them.">
+		<title>Authentication Test</title>
+		<link href="https://authenticationtest.com/assets/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+		<link rel="icon" href="https://authenticationtest.com/assets/favicon.png">
+		
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<a class="navbar-brand" href="https://authenticationtest.com/">
+				<img src="https://authenticationtest.com/assets/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="Authentication Test Icon">Authentication Test</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-con...

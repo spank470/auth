@@ -1,4 +1,0 @@
-URL: https://authenticationtest.com/loginSuccess/
-Метод: GET
-Заголовки: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'PHPSESSID=b04pc9d1an0q7fivsgkva62d3v'}
-Тело: None

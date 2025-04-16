@@ -1,0 +1,4 @@
+URL: https://authenticationtest.com//login/?mode=simpleFormAuth
+Метод: POST
+Заголовки: {'Content-Type': 'application/x-www-form-urlencoded'}
+Тело: email=simpleForm%40authenticationtest.com&password=pa%24%24w0rd
