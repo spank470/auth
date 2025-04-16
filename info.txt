@@ -8,3 +8,10 @@ pip freeze > requirements.txt
 git add . 
 git commit -m "Тест"
 git push
+
+
+создание ветки
+
+git checkout -b имя
+git pull origin имя --rebase
+git push -u origin gh-pages 
