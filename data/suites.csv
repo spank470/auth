@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Apr 16 20:09:48 GMT 2025","Wed Apr 16 20:09:49 GMT 2025","1383","tests","test_compare","","","","test_successful_login",""
+"passed","Wed Apr 16 20:23:08 GMT 2025","Wed Apr 16 20:23:09 GMT 2025","1058","tests","test_compare","","","","test_successful_login",""
