@@ -22,8 +22,7 @@ class TestCompareJSON:
             assert response.status_code == 200, f"Статус код не 200: {response.status_code}"
 
         with allure.step("Загрузка эталонного JSON"):
-            current_dir = os.path.dirname(__file__)  # вот здесь правильно
-            path_to_file = os.path.join(current_dir, "response.json")
+            path_to_file = r"D:\Github\auth\tests\response.json"  # абсолютный путь с raw-строкой
             with open(path_to_file, "r", encoding="utf-8") as f:
                 expected_response = json.load(f)
 
