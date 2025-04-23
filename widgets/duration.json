@@ -1,1 +1,1 @@
-[{"uid":"3eb401eb10876377","name":"Сравнение ответа API с эталонным JSON","time":{"start":1745407840722,"stop":1745407841763,"duration":1041},"status":"broken","severity":"normal"},{"uid":"d094ecc8a4a6e7e2","name":"test_successful_login","time":{"start":1744833475879,"stop":1744833476118,"duration":239},"status":"passed","severity":"normal"}]
+[{"uid":"219366410a3e89db","name":"Сравнение ответа API с эталонным JSON","time":{"start":1745408382741,"stop":1745408384715,"duration":1974},"status":"failed","severity":"normal"}]
