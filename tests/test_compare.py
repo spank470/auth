@@ -22,12 +22,10 @@ class TestCompareJSON:
             assert response.status_code == 200, f"Статус код не 200: {response.status_code}"
 
         with allure.step("Загрузка эталонного JSON"):
-            # Загружаем эталонный JSON
-            current_dir = os.path.dirname(file)
-            file_path = os.path.join(current_dir, "response.json")
-
-            with open(file_path, "r", encoding="utf-8") as file:
-                expected_response = json.load(file)
+            current_dir = os.path.dirname(__file__)  # вот здесь правильно
+            path_to_file = os.path.join(current_dir, "response.json")
+            with open(path_to_file, "r", encoding="utf-8") as f:
+                expected_response = json.load(f)
 
         with allure.step("Сравнение JSON-ответов"):
             # Сравниваем ответ с эталоном
