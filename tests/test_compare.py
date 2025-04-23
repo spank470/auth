@@ -1,6 +1,7 @@
 import requests
 import allure
 import json
+import os
 
 @allure.suite("Сравнение JSON-ответа с эталонным")
 class TestCompareJSON:
@@ -22,11 +23,11 @@ class TestCompareJSON:
 
         with allure.step("Загрузка эталонного JSON"):
             # Загружаем эталонный JSON
-            with open("response.json", "r", encoding="utf-8") as file:
+            current_dir = os.path.dirname(file)
+            file_path = os.path.join(current_dir, "response.json")
+
+            with open(file_path, "r", encoding="utf-8") as file:
                 expected_response = json.load(file)
-            allure.attach(json.dumps(expected_response, indent=2, ensure_ascii=False), 
-                          name="Expected Response", 
-                          attachment_type=allure.attachment_type.JSON)
 
         with allure.step("Сравнение JSON-ответов"):
             # Сравниваем ответ с эталоном
