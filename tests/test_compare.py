@@ -2,6 +2,7 @@ import requests
 import allure
 import json
 import os
+from deepdiff import DeepDiff  # Убедись, что он установлен: pip install deepdiff
 
 @allure.suite("Сравнение JSON-ответа с эталонным")
 class TestCompareJSON:
@@ -34,4 +35,12 @@ class TestCompareJSON:
 
         with allure.step("Сравнение JSON-ответов"):
             actual_response = response.json()
-            assert actual_response == expected_response, "JSON ответы не совпадают"
+            diff = DeepDiff(expected_response, actual_response, ignore_order=True)
+
+            if diff:
+                allure.attach(
+                    json.dumps(diff, indent=4, ensure_ascii=False),
+                    name="Различия JSON",
+                    attachment_type=allure.attachment_type.JSON
+                )
+                assert False, "JSON ответы не совпадают, см. различия во вложении"
