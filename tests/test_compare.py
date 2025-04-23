@@ -22,11 +22,16 @@ class TestCompareJSON:
             assert response.status_code == 200, f"Статус код не 200: {response.status_code}"
 
         with allure.step("Загрузка эталонного JSON"):
-            path_to_file = r"D:\Github\auth\tests\response.json"  # абсолютный путь с raw-строкой
-            with open(path_to_file, "r", encoding="utf-8") as f:
+            # Относительный путь: ищем response.json рядом с этим тестом
+            test_dir = os.path.dirname(os.path.abspath(__file__))
+            response_path = os.path.join(test_dir, "response.json")
+
+            # Проверим, что файл существует, иначе бросим понятную ошибку
+            assert os.path.exists(response_path), f"Файл не найден: {response_path}"
+
+            with open(response_path, "r", encoding="utf-8") as f:
                 expected_response = json.load(f)
 
         with allure.step("Сравнение JSON-ответов"):
-            # Сравниваем ответ с эталоном
             actual_response = response.json()
             assert actual_response == expected_response, "JSON ответы не совпадают"
