@@ -13,19 +13,15 @@ class TestCompareJSON:
             "login": "pankratov",
             "password": "0pFAYSGJ0"
         }
-        
-        response = requests.post(url, data=payload)  
-
-        print(response.status_code)
-        print(response.text)
-
 
         with allure.step("POST-запрос к API"):
-            response = requests.post(url, json=payload)
-            allure.attach(response.text, name="API Response", attachment_type=allure.attachment_type.JSON)
+            # Отправляем данные как форму
+            response = requests.post(url, data=payload)
+            allure.attach(response.text, name="API Response", attachment_type=allure.attachment_type.TEXT)
             assert response.status_code == 200, f"Статус код не 200: {response.status_code}"
 
         with allure.step("Загрузка эталонного JSON"):
+            # Загружаем эталонный JSON
             with open("response.json", "r", encoding="utf-8") as file:
                 expected_response = json.load(file)
             allure.attach(json.dumps(expected_response, indent=2, ensure_ascii=False), 
@@ -33,5 +29,6 @@ class TestCompareJSON:
                           attachment_type=allure.attachment_type.JSON)
 
         with allure.step("Сравнение JSON-ответов"):
+            # Сравниваем ответ с эталоном
             actual_response = response.json()
             assert actual_response == expected_response, "JSON ответы не совпадают"
