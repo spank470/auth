@@ -1,2 +1,3 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Apr 16 21:11:25 GMT 2025","Wed Apr 16 21:11:25 GMT 2025","351","tests","test_compare","","","","test_successful_login",""
+"failed","Wed Apr 23 10:41:58 GMT 2025","Wed Apr 23 10:41:59 GMT 2025","1038","tests","Сравнение JSON-ответа с эталонным","TestCompareJSON","","","Сравнение ответа API с эталонным JSON","Отправляем POST-запрос и сравниваем JSON-ответ с локальным файлом response.json"
+"passed","Wed Apr 16 19:57:55 GMT 2025","Wed Apr 16 19:57:56 GMT 2025","239","tests","test_compare","","","","test_successful_login",""
