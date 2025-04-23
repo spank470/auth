@@ -17,17 +17,14 @@ class TestCompareJSON:
         }
 
         with allure.step("POST-запрос к API"):
-            # Отправляем данные как форму
             response = requests.post(url, data=payload)
-            allure.attach(response.text, name="API Response", attachment_type=allure.attachment_type.TEXT)
+            allure.attach(f"Статус код ответа: {response.status_code}", name="Статус код", attachment_type=allure.attachment_type.TEXT)
             assert response.status_code == 200, f"Статус код не 200: {response.status_code}"
 
         with allure.step("Загрузка эталонного JSON"):
-            # Относительный путь: ищем response.json рядом с этим тестом
-            test_dir = os.path.dirname(os.path.abspath(__file__))
+            test_dir = os.path.dirname(os.path.abspath(__file__))  # исправлено с file на file
             response_path = os.path.join(test_dir, "response.json")
 
-            # Проверим, что файл существует, иначе бросим понятную ошибку
             assert os.path.exists(response_path), f"Файл не найден: {response_path}"
 
             with open(response_path, "r", encoding="utf-8") as f:
@@ -38,9 +35,7 @@ class TestCompareJSON:
             diff = DeepDiff(expected_response, actual_response, ignore_order=True)
 
             if diff:
-                allure.attach(
-                    json.dumps(diff, indent=4, ensure_ascii=False),
-                    name="Различия JSON",
-                    attachment_type=allure.attachment_type.JSON
-                )
+                # Сохраняем только важные различия
+                differences = json.dumps(diff, indent=4, ensure_ascii=False)
+                allure.attach(differences, name="Различия JSON", attachment_type=allure.attachment_type.TEXT)
                 assert False, "JSON ответы не совпадают, см. различия во вложении"
