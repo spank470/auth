@@ -16,7 +16,7 @@ class TestCompareJSON:
             "password": "0pFAYSGJ0"
         }
 
-        with allure.step("POST-запрос к API"):
+        with allure.step("Отправленный запрос"):
             response = requests.post(url, data=payload)
             allure.attach(f"Статус код ответа: {response.status_code}", name="Статус код", attachment_type=allure.attachment_type.TEXT)
             assert response.status_code == 200, f"Статус код не 200: {response.status_code}"
@@ -30,12 +30,12 @@ class TestCompareJSON:
             with open(response_path, "r", encoding="utf-8") as f:
                 expected_response = json.load(f)
 
-        with allure.step("Сравнение JSON-ответов"):
+        with allure.step("Сравнение ответа отправленного запроса с эталоном"):
             actual_response = response.json()
             diff = DeepDiff(expected_response, actual_response, ignore_order=True)
 
             if diff:
-                # Сохраняем только важные различия
+                
                 differences = json.dumps(diff, indent=4, ensure_ascii=False)
                 allure.attach(differences, name="Различия JSON", attachment_type=allure.attachment_type.TEXT)
-                assert False, "JSON ответы не совпадают, см. различия во вложении"
+                assert False, "Ответы не совпадают, см. различия во вложении"
