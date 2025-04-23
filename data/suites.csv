@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Wed Apr 23 11:39:42 GMT 2025","Wed Apr 23 11:39:44 GMT 2025","1974","tests","Сравнение JSON-ответа с эталонным","TestCompareJSON","","","Сравнение ответа API с эталонным JSON","Отправляем POST-запрос и сравниваем JSON-ответ с локальным файлом response.json"
+"failed","Wed Apr 23 11:48:20 GMT 2025","Wed Apr 23 11:48:21 GMT 2025","1094","tests","Сравнение JSON-ответа с эталонным","TestCompareJSON","","","Сравнение ответа API с эталонным JSON","Отправляем POST-запрос и сравниваем JSON-ответ с локальным файлом response.json"

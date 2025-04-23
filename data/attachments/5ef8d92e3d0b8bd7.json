@@ -1,0 +1,16 @@
+{
+    "values_changed": {
+        "root['accessToken']": {
+            "new_value": "eyJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InBhbmtyYXRvdiIsIm9yZ0lkIjoiIiwidmVyc2lvbiI6IjQiLCJzZXJ2ZXJOYW1lIjoiS1BQIiwiY2xpZW50UmVhbG0iOiIxMC40Mi4yLjM4IiwiY2xpZW50TmFtZSI6IjEwLjQyLjIuMzgiLCJleHAiOjE3NDU0MTI1MzF9.kCDcx0OSfNSoamncAYuhjqseN8T_1K0QQqltQutIr1g",
+            "old_value": "eyJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InBhbmtyYXRvdiIsIm9yZ0lkIjoiIiwidmVyc2lvbiI6IjQiLCJzZXJ2ZXJOYW1lIjoiS1BQIiwiY2xpZW50UmVhbG0iOiIxMC40Mi4yLjM4IiwiY2xpZW50TmFtZSI6IjEwLjQyLjIuMzgiLCJleHAiOjE3NDU0MDY2NTh9.27kwWB4tzsRGLKlgca9okUzu_RdB8fFSYtl8qgnv3To"
+        },
+        "root['refreshToken']": {
+            "new_value": "eyJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InBhbmtyYXRvdiIsIm9yZ0lkIjoiIiwidmVyc2lvbiI6IjQiLCJzZXJ2ZXJOYW1lIjoiS1BQIiwiY2xpZW50UmVhbG0iOiIxMC40Mi4yLjM4IiwiY2xpZW50TmFtZSI6IjEwLjQyLjIuMzgiLCJleHAiOjE3NDU0MTI1MDF9.Kq_iq-1fyw0obdgeS_YrGE-dFLdiD1twNjtGrECIzIw",
+            "old_value": "eyJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InBhbmtyYXRvdiIsIm9yZ0lkIjoiIiwidmVyc2lvbiI6IjQiLCJzZXJ2ZXJOYW1lIjoiS1BQIiwiY2xpZW50UmVhbG0iOiIxMC40Mi4yLjM4IiwiY2xpZW50TmFtZSI6IjEwLjQyLjIuMzgiLCJleHAiOjE3NDU0MDY2Mjh9.BL_OvA555UVyE5c7qi5cEQ0_RGTVqWXozZ6QCV66n5Q"
+        },
+        "root['user']['lastSuccessAuthDate']": {
+            "new_value": "2025-04-23T11:48:21",
+            "old_value": "2025-04-23T10:10:28"
+        }
+    }
+}
