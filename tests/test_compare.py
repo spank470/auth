@@ -13,6 +13,11 @@ class TestCompareJSON:
             "login": "pankratov",
             "password": "0pFAYSGJ0"
         }
+        
+        response = requests.post(url, data=payload)  
+
+        print(response.status_code)
+        print(response.text)
 
 
         with allure.step("POST-запрос к API"):
